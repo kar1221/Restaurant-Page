@@ -1,0 +1,36 @@
+@import "./css-reset.css";
+@import "./navbar.css";
+
+:root {
+    --logo-font: "Concert One", sans-serif;
+    --cursive-font: "Chewy", sans-serif;
+    --slogan-font: "Doppio One", sans-serif;
+    --general-font: "Inter", sans-serif;
+
+    --accent: #FACC15;
+    --darker-accent: #FB923C;
+}
+
+#app {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: url("../assets/background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 1;
+
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-image: linear-gradient(90deg, black, black);
+        opacity: 0.7;
+        z-index: -1;
+    }
+}
