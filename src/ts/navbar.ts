@@ -1,5 +1,30 @@
 import RestaurantLogo from "../assets/logo.svg?raw"
 
+
+function socialMedias(): HTMLElement {
+  const socialMediaContainer = document.createElement("div") as HTMLDivElement;
+
+  socialMediaContainer.classList.add("social-media-container");
+
+  const facebook = document.createElement("a") as HTMLAnchorElement;
+  const instagram = document.createElement("a") as HTMLAnchorElement;
+  const tumblr = document.createElement("a") as HTMLAnchorElement;
+
+  facebook.classList.add("social");
+  instagram.classList.add("social");
+  tumblr.classList.add("social");
+  
+  facebook.innerHTML = `<iconify-icon icon="mdi:facebook"></iconify-icon>`;
+  instagram.innerHTML = `<iconify-icon icon="mdi:instagram"></iconify-icon>`;
+  tumblr.innerHTML = `<iconify-icon icon="mdi:twitter"></iconify-icon>`;
+
+  socialMediaContainer.appendChild(facebook);
+  socialMediaContainer.appendChild(instagram);
+  socialMediaContainer.appendChild(tumblr);
+
+  return socialMediaContainer;
+}
+
 function navItem(
   text: string,
   active = false,
@@ -49,7 +74,7 @@ function logo(): HTMLElement {
   logo.innerHTML = RestaurantLogo;
 
   const logoText = document.createElement("h1") as HTMLHeadingElement;
-  logoText.innerHTML = "Aroma.";
+  logoText.innerHTML = "AristoCafé";
 
   logoContainer.appendChild(logo);
   logoContainer.appendChild(logoText);
@@ -77,6 +102,7 @@ function navbar(): void {
   linksContainer.appendChild(contact);
 
   navbarContainer.appendChild(linksContainer);
+  navbarContainer.appendChild(socialMedias());
 
   app.appendChild(navbarContainer);
 }
