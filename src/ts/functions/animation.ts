@@ -1,29 +1,34 @@
-function fadeOut(duration: number): Promise<void> {
-  // Use promise so that we can chain two function using .then()
-  // To prevent pages get inserted before getting removed.
+function FadeoutSlideUp(duration: number): Promise<void> {
   const promise = new Promise<void>((resolve) => {
     const element = document.querySelector(".context") as HTMLElement;
-  
     element.style.transition = `all ${duration}s ease-in-out`;
+    
     element.style.opacity = "0";
-  
+    element.style.transform = "translateX(-50%)";
+    element.style.filter = "blur(5px)";
+
     setTimeout(() => {
       element.remove();
       resolve();
     }, duration * 1000);
   })
+
   return promise;
 }
 
-function fadeIn(duration: number, elementFn: () => void) {
+function FadeInSlideUp(duration: number, elementFn: () => void): void {
   elementFn();
-  const target = document.querySelector(".context") as HTMLElement;
-  target.style.transition = `all ${duration}s ease-in-out`;
-  target.style.opacity = "0";
+  const element = document.querySelector(".context") as HTMLElement;
+  element.style.transition = `all ${duration}s ease-in-out`;
+  element.style.opacity = "0";
+  element.style.transform = "translateX(50%)";
+  element.style.filter = "blur(20px)";
 
   setTimeout(() => {
-    target.style.opacity = "1";
+    element.style.opacity = "1";
+    element.style.transform = "translateX(0)";
+    element.style.filter = "";
   }, duration * 1000);
 }
 
-export { fadeIn, fadeOut };
+export { FadeoutSlideUp, FadeInSlideUp };

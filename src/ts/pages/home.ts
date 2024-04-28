@@ -1,9 +1,13 @@
+import { loadPage } from "../functions/pageLoad";
+import menu from "./menu";
+
 function home(): void {
   const app = document.querySelector("#app") as HTMLDivElement;
   const homeContainer = document.createElement("div") as HTMLDivElement;
 
   homeContainer.classList.add("home-container");
   homeContainer.classList.add("context");
+  homeContainer.id = "home";
 
   const sloganOne = document.createElement("h2") as HTMLHeadingElement;
   sloganOne.innerHTML = "Start you day";
@@ -13,6 +17,9 @@ function home(): void {
 
   const button = document.createElement("button") as HTMLButtonElement;
   button.innerHTML = "Learn more";
+  button.addEventListener("click", () => {
+    loadPage(menu);
+  });
 
   homeContainer.appendChild(sloganOne);
   homeContainer.appendChild(sloganTwo);

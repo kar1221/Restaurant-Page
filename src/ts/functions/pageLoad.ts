@@ -1,9 +1,8 @@
-import { fadeOut, fadeIn } from "./animation";
+import { FadeInSlideUp, FadeoutSlideUp } from "./animation";
 
 function loadPage(pageFn: () => void): void {
-  const duration = 0.15;
 
-  fadeOut(duration / 2).then(() => fadeIn(duration / 2, pageFn));
+  FadeoutSlideUp(0.2).then(() => FadeInSlideUp(0.2, pageFn));
 }
 
 export { loadPage };

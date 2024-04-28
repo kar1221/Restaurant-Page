@@ -1,6 +1,7 @@
 import RestaurantLogo from "../assets/logo.svg?raw";
 import { loadPage } from "./functions/pageLoad";
 import home from "./pages/home";
+import menu from "./pages/menu";
 
 function socialMedias(): HTMLElement {
   const socialMediaContainer = document.createElement("div") as HTMLDivElement;
@@ -26,17 +27,17 @@ function socialMedias(): HTMLElement {
   return socialMediaContainer;
 }
 
+function resetLinks() {
+  const links = document.querySelectorAll(".navbar-link");
+
+  links.forEach((link) => link.classList.remove("active"));
+}
+
 function navItem(
   text: string,
   active = false,
   onclick?: () => void
 ): HTMLElement {
-  function resetLinks() {
-    const links = document.querySelectorAll(".navbar-link");
-
-    links.forEach((link) => link.classList.remove("active"));
-  }
-
   const link = document.createElement("a") as HTMLAnchorElement;
 
   link.innerHTML = text;
@@ -93,19 +94,25 @@ function navbar(): void {
   const linksContainer = document.createElement("div") as HTMLDivElement;
   linksContainer.classList.add("links-container");
 
-  const homeDiv = navItem("home", true, () => {
-    loadPage(home);
-  });
-  const menuDiv = navItem("menu");
+  const homeDiv = navItem("home", true, () => loadPage(home));
+  const menuDiv = navItem("menu", false, () => loadPage(menu));
   const contactDiv = navItem("contact");
 
   linksContainer.appendChild(homeDiv);
   linksContainer.appendChild(menuDiv);
   linksContainer.appendChild(contactDiv);
 
+  const hambaga = document.createElement("button") as HTMLButtonElement;
+  hambaga.classList.add("hambaga");
+  hambaga.innerHTML = `<iconify-icon icon="mdi:menu"></iconify-icon>`;
+  hambaga.addEventListener("click", () => {
+    hambaga.classList.toggle("active");
+    linksContainer.classList.toggle("active");
+  });
+
   navbarContainer.appendChild(linksContainer);
   navbarContainer.appendChild(socialMedias());
-
+  navbarContainer.appendChild(hambaga);
   app.appendChild(navbarContainer);
 }
 
