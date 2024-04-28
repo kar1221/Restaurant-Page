@@ -3,6 +3,7 @@ function home(): void {
   const homeContainer = document.createElement("div") as HTMLDivElement;
 
   homeContainer.classList.add("home-container");
+  homeContainer.classList.add("context");
 
   const sloganOne = document.createElement("h2") as HTMLHeadingElement;
   sloganOne.innerHTML = "Start you day";
@@ -16,7 +17,7 @@ function home(): void {
   homeContainer.appendChild(sloganOne);
   homeContainer.appendChild(sloganTwo);
   homeContainer.appendChild(button);
-  
+
   app.appendChild(homeContainer);
 }
 
