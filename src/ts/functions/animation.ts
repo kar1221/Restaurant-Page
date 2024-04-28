@@ -5,7 +5,6 @@ function FadeoutSlideUp(duration: number): Promise<void> {
     
     element.style.opacity = "0";
     element.style.transform = "translateX(-50%)";
-    element.style.filter = "blur(5px)";
 
     setTimeout(() => {
       element.remove();
@@ -22,12 +21,10 @@ function FadeInSlideUp(duration: number, elementFn: () => void): void {
   element.style.transition = `all ${duration}s ease-in-out`;
   element.style.opacity = "0";
   element.style.transform = "translateX(50%)";
-  element.style.filter = "blur(20px)";
 
   setTimeout(() => {
     element.style.opacity = "1";
     element.style.transform = "translateX(0)";
-    element.style.filter = "";
   }, duration * 1000);
 }
 

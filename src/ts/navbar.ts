@@ -1,5 +1,6 @@
 import RestaurantLogo from "../assets/logo.svg?raw";
 import { loadPage } from "./functions/pageLoad";
+import contact from "./pages/contact";
 import home from "./pages/home";
 import menu from "./pages/menu";
 
@@ -49,7 +50,10 @@ function navItem(
 
   // User specified click event
   if (onclick) {
-    link.addEventListener("click", () => onclick());
+    link.addEventListener("click", () => {
+      if(link.classList.contains("active")) return;
+      onclick()
+    });
   }
 
   // default click event
@@ -96,7 +100,7 @@ function navbar(): void {
 
   const homeDiv = navItem("home", true, () => loadPage(home));
   const menuDiv = navItem("menu", false, () => loadPage(menu));
-  const contactDiv = navItem("contact");
+  const contactDiv = navItem("contact", false, () => loadPage(contact));
 
   linksContainer.appendChild(homeDiv);
   linksContainer.appendChild(menuDiv);
