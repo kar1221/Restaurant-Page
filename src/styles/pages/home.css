@@ -1,89 +1,89 @@
 @custom-media --viewport-tablet (width <= 1180px);
 
 .home-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
 
-    h2 {
-        font-family: var(--cursive-font);
-        color: white;
-        font-size: 4rem;
-        transition: all 0.2s ease-in-out;
-        width: max-content;
+  h2 {
+    font-family: var(--cursive-font);
+    color: white;
+    font-size: 4rem;
+    transition: all 0.2s ease-in-out;
+    width: max-content;
 
-        @media (--viewport-tablet) {
-            font-size: clamp(3rem, 1.0127rem + 4.0506vw, 4rem);
-        }
+    @media (--viewport-tablet) {
+      font-size: clamp(3rem, 1.0127rem + 4.0506vw, 4rem);
     }
-    
-    h2:nth-child(1) {
-        position: absolute;
-        left: 47%;
-        top: 34%;
+  }
 
-        @media (--viewport-tablet) {
-            top: 10%;
-            left: 50%;
-            transform: translateX(-50%);
-        }
+  h2:nth-child(1) {
+    position: absolute;
+    left: 47%;
+    top: 34%;
+
+    @media (--viewport-tablet) {
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  h2:nth-child(2) {
+    position: absolute;
+    left: 50%;
+    top: 43%;
+
+    @media (--viewport-tablet) {
+      top: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  button {
+    position: absolute;
+    appearance: none;
+    padding: 0.5em 1em;
+    font-family: var(--general-font);
+    font-size: clamp(1rem, 0.4936rem + 1.0256vw, 1.25rem);
+    top: 54%;
+    right: clamp(2.5rem, -37.3649rem + 54.0541vw, 27.5rem);
+    background: none;
+    border: 2px solid var(--amber);
+    color: var(--amber);
+    transition: color 0.1s ease-in-out;
+    z-index: 1;
+    font-weight: 500;
+    cursor: pointer;
+    transition: right 0.2s ease-in-out;
+
+    @media (--viewport-tablet) {
+      top: 32%;
+      right: 50%;
+      transform: translateX(50%);
     }
 
-    h2:nth-child(2) {
-        position: absolute;
-        left: 50%;
-        top: 43%;
-
-        @media (--viewport-tablet) {
-            top: 20%;
-            left: 50%;
-            transform: translateX(-50%);
-        }
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 100%;
+      bottom: 0;
+      background-color: var(--amber);
+      transition: right 0.1s ease-in-out;
+      z-index: -1;
     }
 
-    button {
-        position: absolute;
-        appearance: none;
-        padding: .5em 1em;
-        font-family: var(--general-font);
-        font-size: clamp(1rem, 0.4936rem + 1.0256vw, 1.25rem);
-        top: 54%;
-        right: clamp(2.5rem, -38.3615rem + 55.4054vw, 28.125rem);
-        background: none;
-        border: 2px solid var(--amber);
-        color: var(--amber);
-        transition: color 0.1s ease-in-out;
-        z-index: 1;
-        font-weight: 500;
-        cursor: pointer;
-        transition: right 0.2s ease-in-out;
-
-        @media (--viewport-tablet) {
-            top: 32%;
-            right: 50%;
-            transform: translateX(50%);
-        }
-
-        &::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 100%;
-            bottom: 0;
-            background-color: var(--amber);
-            transition: right 0.1s ease-in-out;
-            z-index: -1;
-        }
-
-        &:hover::before {
-            right: 0;
-        }
-
-        &:hover {
-            color: white;
-        }
+    &:hover::before {
+      right: 0;
     }
+
+    &:hover {
+      color: white;
+    }
+  }
 }

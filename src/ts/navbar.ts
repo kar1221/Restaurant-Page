@@ -1,5 +1,6 @@
-import RestaurantLogo from "../assets/logo.svg?raw"
-
+import RestaurantLogo from "../assets/logo.svg?raw";
+import { loadPage } from "./functions/pageLoad";
+import home from "./pages/home";
 
 function socialMedias(): HTMLElement {
   const socialMediaContainer = document.createElement("div") as HTMLDivElement;
@@ -13,7 +14,7 @@ function socialMedias(): HTMLElement {
   facebook.classList.add("social");
   instagram.classList.add("social");
   tumblr.classList.add("social");
-  
+
   facebook.innerHTML = `<iconify-icon icon="mdi:facebook"></iconify-icon>`;
   instagram.innerHTML = `<iconify-icon icon="mdi:instagram"></iconify-icon>`;
   tumblr.innerHTML = `<iconify-icon icon="mdi:twitter"></iconify-icon>`;
@@ -30,11 +31,10 @@ function navItem(
   active = false,
   onclick?: () => void
 ): HTMLElement {
-
   function resetLinks() {
     const links = document.querySelectorAll(".navbar-link");
 
-    links.forEach(link => link.classList.remove("active"));
+    links.forEach((link) => link.classList.remove("active"));
   }
 
   const link = document.createElement("a") as HTMLAnchorElement;
@@ -55,7 +55,7 @@ function navItem(
   link.addEventListener("click", () => {
     resetLinks();
     link.classList.add("active");
-  })
+  });
 
   // For link active indicator.
   const underline = document.createElement("div") as HTMLDivElement;
@@ -69,7 +69,7 @@ function logo(): HTMLElement {
   const logoContainer = document.createElement("div") as HTMLDivElement;
   logoContainer.classList.add("logo-container");
 
-  const logo = document.createElement('div') as HTMLDivElement;
+  const logo = document.createElement("div") as HTMLDivElement;
   logo.classList.add("logo");
   logo.innerHTML = RestaurantLogo;
 
@@ -84,22 +84,24 @@ function logo(): HTMLElement {
 
 function navbar(): void {
   const app = document.querySelector("#app") as HTMLDivElement;
-  
+
   const navbarContainer = document.createElement("div") as HTMLDivElement;
-  navbarContainer.classList.add("navbar")
+  navbarContainer.classList.add("navbar");
 
   navbarContainer.appendChild(logo());
 
   const linksContainer = document.createElement("div") as HTMLDivElement;
   linksContainer.classList.add("links-container");
 
-  const home = navItem("home", true);
-  const menu = navItem("menu");
-  const contact = navItem("contact");
+  const homeDiv = navItem("home", true, () => {
+    loadPage(home);
+  });
+  const menuDiv = navItem("menu");
+  const contactDiv = navItem("contact");
 
-  linksContainer.appendChild(home);
-  linksContainer.appendChild(menu);
-  linksContainer.appendChild(contact);
+  linksContainer.appendChild(homeDiv);
+  linksContainer.appendChild(menuDiv);
+  linksContainer.appendChild(contactDiv);
 
   navbarContainer.appendChild(linksContainer);
   navbarContainer.appendChild(socialMedias());

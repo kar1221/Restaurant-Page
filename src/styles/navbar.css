@@ -1,92 +1,93 @@
 .navbar {
-    /* background: rgba(0, 0, 0, 0.5); */
-    /* backdrop-filter: blur(5px); */
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    position: relative;
+  /* background: rgba(0, 0, 0, 0.5); */
+  backdrop-filter: blur(10px);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
 }
 
 .logo-container {
-    display: flex;
-    font-family: var(--logo-font);
-    justify-content: center;
-    align-items: center;
-    gap: .625rem;
+  display: flex;
+  font-family: var(--logo-font);
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
 
-    .logo {
-        width: 48px;
-        height: 48px;
-        color: var(--amber);
-    }
+  .logo {
+    width: 48px;
+    height: 48px;
+    color: var(--amber);
+  }
 
-    h1 {
-        color: white;
-        font-size: 2rem;
-        font-weight: 600;
-    }
+  h1 {
+    color: white;
+    font-size: 2rem;
+    font-weight: 600;
+  }
 }
 
 .links-container {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    font-size: 1rem;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  font-size: 1rem;
 
-    .navbar-link {
-        position: relative;
-        color: white;
-        font-family: var(--general-font);
-        text-transform: capitalize;
-        font-weight: 500;
-        transition: transform 0.2s ease-in-out;
-        transform: translateY(0);
-        cursor: pointer;
+  .navbar-link {
+    position: relative;
+    color: white;
+    font-family: var(--general-font);
+    text-transform: capitalize;
+    font-weight: 500;
+    transition: transform 0.2s ease-in-out;
+    transform: translateY(0);
+    cursor: pointer;
 
-        .underline {
-            position: absolute;
-            width: 0;
+    .underline {
+      position: absolute;
+      width: 0;
 
-            /* To make it center. */
-            left: 50%;
-            transform: translateX(-50%);
+      /* To make it center. */
+      left: 50%;
+      transform: translateX(-50%);
 
-            bottom: -40%;
-            height: 1px;
-            background: var(--amber);
-            transition: width 0.2s ease-in-out;
-        }
+      bottom: -40%;
+      height: 1px;
+      background: var(--amber);
+      transition: width 0.2s ease-in-out;
     }
+  }
 
-    .navbar-link.active {
-        color: var(--amber);
-        transform: translateY(-50%);
+  .navbar-link.active {
+    color: var(--amber);
+    transform: translateY(-50%);
 
-        .underline {
-            width: 95%;
-        }
+    .underline {
+      width: 95%;
     }
+  }
 }
 
 .social-media-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: .625rem;
-    cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  cursor: pointer;
 
-    iconify-icon {
-        font-size: 2.25rem;
-        color: white;
-        transition: color 0.1s ease-in-out;
+  iconify-icon {
+    font-size: 2.25rem;
+    color: white;
+    transition: color 0.1s ease-in-out, transform 0.1s ease-in-out;
 
-        &:hover {
-            color: var(--amber);
-        }
+    &:hover {
+      color: var(--amber);
+      transform: translateY(-2px);
     }
+  }
 }

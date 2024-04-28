@@ -3,46 +3,45 @@
 @import "./pages/home.css";
 
 :root {
-    --logo-font: "Kanit", sans-serif;
-    --cursive-font: "Just Me Again Down Here", sans-serif;
-    --general-font: "Poppins", sans-serif;
+  --logo-font: "Kanit", sans-serif;
+  --cursive-font: "Just Me Again Down Here", sans-serif;
+  --general-font: "Poppins", sans-serif;
 
-    --jet: #39332Eff;
-    --beaver: #827463ff;
-    --taupe: #534438ff;
-    --van-dyke: #312925ff;
-    --night: #0F0D0Dff;
-    --amber: #fbbf24ff;
+  --jet: #39332eff;
+  --beaver: #827463ff;
+  --taupe: #534438ff;
+  --van-dyke: #312925ff;
+  --night: #0f0d0dff;
+  --amber: #fbbf24ff;
 }
 
-body, html {
-    width: 100vw;
-    height: 100vh;
+body,
+html {
+  width: 100vw;
+  height: 100vh;
 }
 
 #app {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url("../assets/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
 
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background: url("../assets/background.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: 1;
-
-
-    &:before {
-        content: '';
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-image: linear-gradient(90deg, black, black);
-        opacity: 0.15;
-        z-index: -1;
-    }
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: linear-gradient(90deg, black, black);
+    opacity: 0.15;
+    z-index: -1;
+  }
 }
