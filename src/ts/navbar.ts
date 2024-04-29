@@ -114,6 +114,13 @@ function navbar(): void {
     linksContainer.classList.toggle("active");
   });
 
+  //hambaga menu events
+  app.addEventListener("click", (ev: Event) => {
+    if(ev.target === hambaga || ev.target === hambaga.children[0]) return;
+    hambaga.classList.remove("active");
+    linksContainer.classList.remove("active");
+  });
+
   navbarContainer.appendChild(linksContainer);
   navbarContainer.appendChild(socialMedias());
   navbarContainer.appendChild(hambaga);

@@ -1,6 +1,7 @@
-@custom-media --viewport-small (width <= 940px);
+@custom-media --viewport-menu-small (width <= 940px);
 
 .menu-container {
+  margin-top: 13%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,14 +15,14 @@
   align-items: center;
   gap: 10px;
 
-  @media (--viewport-small) {
+  @media (--viewport-menu-small) {
     flex-direction: column;
   }
 
   &.reverse {
     flex-direction: row-reverse;
 
-    @media (--viewport-small) {
+    @media (--viewport-menu-small) {
       flex-direction: column;
     }
   }
@@ -32,11 +33,11 @@
     font-family: var(--general-font);
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(200px);
-    padding: 2rem;
+    padding: 2rem clamp(2rem, 0.385rem + 6.154vw, 4rem);
     width: 65ch;
     z-index: -1;
 
-    @media (--viewport-small) {
+    @media (--viewport-menu-small) {
       width: min(100%, 400px);
     }
 
@@ -60,7 +61,7 @@
     width: 15rem;
     height: auto;
 
-    @media (--viewport-small) {
+    @media (--viewport-menu-small) {
       transform: translateY(10%);
       z-index: 1;
     }

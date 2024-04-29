@@ -22,11 +22,13 @@ function contact() {
   nameInput.type = "text";
   nameInput.name = "name";
   nameInput.placeholder = "Full Name";
+  nameInput.autocomplete = "on";
 
   const emailInput = document.createElement("input") as HTMLInputElement;
   emailInput.type = "email";
   emailInput.name = "email";
   emailInput.placeholder = "Email";
+  emailInput.autocomplete = "on";
 
   const messageInput = document.createElement("textarea") as HTMLTextAreaElement;
   messageInput.name = "message";

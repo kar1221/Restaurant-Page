@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  flex: 1;
+  height: 100vh;
   z-index: -1;
 
   h2 {
@@ -26,7 +26,7 @@
   h2:nth-child(1) {
     position: absolute;
     left: 47%;
-    top: 34%;
+    top: 40%;
 
     @media (--viewport-medium) {
       top: 10%;
@@ -38,7 +38,7 @@
   h2:nth-child(2) {
     position: absolute;
     left: 50%;
-    top: 43%;
+    top: 47%;
 
     @media (--viewport-medium) {
       top: 20%;
